@@ -11,7 +11,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState('home')
 
   // Delegamos toda a lógica de áudio para o hook personalizado
-  const { currentSound, isPlaying, volume, togglePlay, changeVolume } = useAudioPlayer()
+  const { currentSound, isPlaying, volume, togglePlay, changeVolume, videoFundo } = useAudioPlayer()
 
   // Tempo restante em segundos para o countdown
   const [timeLeft, setTimeLeft] = useState(null)
@@ -39,6 +39,7 @@ function App() {
           changeVolume={changeVolume}
           timeLeft={timeLeft}
           setTimeLeft={setTimeLeft}
+          videoFundo={videoFundo}
         />
       )}
       {currentPage === 'about' && (

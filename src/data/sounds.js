@@ -3,18 +3,8 @@
 // Para usar áudios reais, coloque os arquivos .mp3 na pasta /public/sounds/
 
 export const sounds = [
-  { id: 1, name: 'Chuva suave',      category: 'natureza',     emoji: '🌧️', color: 'red',       src: '/sounds/rain.mp3'       },
-  { id: 2, name: 'Ondas do mar',     category: 'natureza',     emoji: '🌊', color: 'blue',      src: '/sounds/teste.mp3'       },
-  { id: 3, name: 'Floresta',         category: 'natureza',     emoji: '🌿', color: 'green',     src: '/sounds/teste.mp3'       },
-  { id: 4, name: 'Ruído branco',     category: 'ruído branco', emoji: '📡', color: 'pink',      src: '/sounds/teste.mp3'       },
-  { id: 5, name: 'Ventilador',       category: 'ruído branco', emoji: '🌀', color: 'white',     src: '/sounds/teste.mp3'       },
-  { id: 6, name: 'Piano suave',      category: 'foco',         emoji: '🎹', color: 'yellow',    src: '/sounds/teste.mp3'       },
-  { id: 7, name: 'Lo-fi beats',      category: 'foco',         emoji: '🎧', color: 'brown',     src: '/sounds/teste.mp3'       },
-  { id: 8, name: 'Cafeteria',        category: 'foco',         emoji: '☕', color: 'aliceblue', src: '/sounds/teste.mp3'       },
-  { id: 9, name: 'Tigela tibetana',  category: 'meditação',    emoji: '🔔', color: 'beige',     src: '/sounds/teste.mp3'       },
-  { id: 10, name: 'Om mantra',       category: 'meditação',    emoji: '🕉️', color: 'orange',    src: '/sounds/teste.mp3'       },
-  { id: 11, name: 'Pássaros',        category: 'relaxante',    emoji: '🐦', color: 'violet',    src: '/sounds/teste.mp3'       },
-  { id: 12, name: 'Lareira',         category: 'relaxante',    emoji: '🔥', color: 'aliceblue', src: '/sounds/teste.mp3'       },
+  { id: 1, name: 'Chuva suave',      category: 'natureza',     emoji: '🌧️', bg: '/fundos/fogo.mp4',   src: '/sounds/rain.mp3'       },
+  { id: 2, name: 'Ondas do mar',     category: 'natureza',     emoji: '🌊', bg: '/fundos/fogo.mp4',   src: '/sounds/teste.mp3'      }
 ]
 
 // Categorias usadas nas abas de filtro

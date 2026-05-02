@@ -8,20 +8,20 @@ function About({ onNavigate }) {
   return (
     <div className="about">
       <AppHeader 
-        title="Byte Melody"
-        subtitle="Sobre a aplicação"
+        title="Gui melody"
+        subtitle="Sobre o repositório"
         onNavigate={onNavigate}
         currentPage="about"
       />
       
       <div className="about__container">
         <section className="about__section">
-          <h1 className="about__title">Sobre o Byte Melody</h1>
+          <h1 className="about__title">Sobre o Gui Melody</h1>
           
           <p className="about__text">
-            O Byte Melody é um aplicativo de sons relaxantes e produtivos, 
-            desenvolvido para ajudá-lo a criar o ambiente perfeito para 
-            concentração, estudo, trabalho ou descanso.
+            O Gui Melody é um repositório de músicas feitas por Guilherme Brito, 
+            desenvolvido para centralizar criações próprias ou execuções. 
+            Mas se quiser, você pode usar para se concentrar, estudar, trabalhar ou descansar.
           </p>
         </section>
 
@@ -30,17 +30,16 @@ function About({ onNavigate }) {
           
           <ul className="about__features">
             <li className="about__feature-item">
-              <strong>Biblioteca de Sons:</strong> Explore uma variedade de sons naturais 
-              e ambientes relaxantes
+              <strong>Instrumental:</strong> Explore uma variedade de estilos musicais tocados em um único instrumento, o piano
             </li>
             <li className="about__feature-item">
-              <strong>Categorias:</strong> Sons organizados por categoria para fácil acesso
+              <strong>Estilos:</strong> Sons organizados por estilos para fácil acesso
             </li>
             <li className="about__feature-item">
               <strong>Controle de Volume:</strong> Ajuste o volume de acordo com sua preferência
             </li>
             <li className="about__feature-item">
-              <strong>Timer (Cronômetro):</strong> Defina um tempo limite para seus sons
+              <strong>Timer (Cronômetro):</strong> Defina um tempo limite para seus sons, caso queira usá-lo para estudos
             </li>
             <li className="about__feature-item">
               <strong>Interface Intuitiva:</strong> Design limpo e fácil de usar
@@ -53,7 +52,7 @@ function About({ onNavigate }) {
           
           <ol className="about__steps">
             <li className="about__step-item">
-              Selecione uma categoria ou visualize todos os sons disponíveis
+              Selecione um estilo musical ou visualize todos os sons disponíveis
             </li>
             <li className="about__step-item">
               Clique em qualquer som para reproduzi-lo
@@ -65,7 +64,7 @@ function About({ onNavigate }) {
               Opcionalmente, defina um timer para pausar automaticamente após um tempo
             </li>
             <li className="about__step-item">
-              Relaxe e aproveite o ambiente perfeito para sua atividade
+              Relaxe e aproveite
             </li>
           </ol>
         </section>
@@ -74,7 +73,7 @@ function About({ onNavigate }) {
           <h2 className="about__subtitle">Tecnologias</h2>
           
           <p className="about__text">
-            Byte Melody foi desenvolvido com:
+            Gui Melody foi desenvolvido com:
           </p>
           
           <ul className="about__tech-list">
@@ -90,7 +89,7 @@ function About({ onNavigate }) {
           
           <p className="about__text">
             Tem dúvidas ou sugestões? Adoraríamos ouvir sua opinião para melhorar 
-            continuamente o Byte Melody.
+            continuamente o Gui Melody, para tal, entre em contato através do e-mail: <i>guidobritosantosss@gmail.com</i>
           </p>
           
           <p className="about__text">

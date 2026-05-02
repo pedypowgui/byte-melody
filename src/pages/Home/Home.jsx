@@ -27,6 +27,7 @@ function Home({
   togglePlay,
   changeVolume,
   setTimeLeft,
+  videoFundo,
 }) {
   // Categoria selecionada nas abas (começa com "todos")
   const [activeCategory, setActiveCategory] = useState('todos')
@@ -56,10 +57,8 @@ function Home({
     const estaRodandoEstesom = currentSound?.id === sound.id && isPlaying
     togglePlay(sound)
     if (estaRodandoEstesom) {
-      document.body.style.backgroundColor = "#16171d";
       mostrarToast(`⏸ ${sound.name} pausado`)
     } else {
-      document.body.style.backgroundColor = sound.color;
       mostrarToast(`▶ ${sound.name} iniciado`)
     }
   }
@@ -73,10 +72,16 @@ function Home({
   // --- Renderização ---
   return (
     <div className="home">
+      {/* Video background */}
+      <video
+        ref={videoFundo}
+        className="video__fundo"
+      />
+
       {/* 1. Cabeçalho com props de conteúdo */}
       <AppHeader
-        title="Byte Melody"
-        subtitle="Experiências sonoras interativas"
+        title="Gui melody"
+        subtitle="Repositório de músicas do Guizika"
         onNavigate={onNavigate}
         currentPage="home"
       />

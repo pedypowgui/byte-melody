@@ -16,6 +16,7 @@ export function useAudioPlayer() {
 
   // useRef guarda o elemento de áudio sem causar re-render quando muda
   const audioRef = useRef(null)
+  const videoFundo = useRef(null)
 
   // Função para tocar um som específico
   function play(sound) {
@@ -24,16 +25,30 @@ export function useAudioPlayer() {
       audioRef.current.pause()
     }
 
+    // Para o vídeo anterior
+    if (videoFundo.current) {
+      videoFundo.current.pause()
+    }
+
     // Cria um novo elemento de áudio HTML5
     const audio = new Audio(sound.src)
     audio.volume = volume
     audio.loop = true // repete o som em loop
+
+    videoFundo.current.src = sound.bg //Escolhe o vídeo certo
+    videoFundo.current.loop = true //Deixa o vídeo em loop
+    videoFundo.current.muted = true //Deixa o vídeo mutado
 
     // .play() retorna uma Promise — o .catch evita erros se o arquivo não existir
     audio.play().catch(() => {
       console.warn(`Arquivo não encontrado: ${sound.src}`)
     })
 
+    videoFundo.current.play().catch(() => {
+      console.warn(`Vídeo não encontrado: ${sound.bg}`);
+    })
+    
+    videoFundo.current.style.opacity = "0.6"
     // Salva a referência para poder pausar depois
     audioRef.current = audio
     setCurrentSound(sound)
@@ -45,6 +60,10 @@ export function useAudioPlayer() {
     if (audioRef.current) {
       audioRef.current.pause()
     }
+    // Faz o vídeo desaparecer quando pausa o áudio
+    if (videoFundo.current) {
+      videoFundo.current.style.opacity = "0"
+    }
     setIsPlaying(false)
   }
 
@@ -52,6 +71,10 @@ export function useAudioPlayer() {
   function resume() {
     if (audioRef.current) {
       audioRef.current.play().catch(() => {})
+    }
+    // Faz o vídeo reaparecer quando retoma o áudio
+    if (videoFundo.current) {
+      videoFundo.current.style.opacity = "0.6"
     }
     setIsPlaying(true)
   }
@@ -87,6 +110,13 @@ export function useAudioPlayer() {
     }
   }, [])
 
+  // Inicializa o vídeo "invisível"
+  useEffect(() => {
+    if (videoFundo.current) {
+      videoFundo.current.style.opacity = "0"
+    }
+  }, [])
+
   // Retorna os estados e funções que os componentes precisam
-  return { currentSound, isPlaying, volume, togglePlay, changeVolume }
+  return { currentSound, isPlaying, volume, togglePlay, changeVolume, videoFundo }
 }

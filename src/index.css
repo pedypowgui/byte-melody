@@ -59,7 +59,7 @@
 
 body {
   margin: 0;
-  transition: 0.3s ease;
+  transition: opacity 1s ease;
 }
 
 #root {
