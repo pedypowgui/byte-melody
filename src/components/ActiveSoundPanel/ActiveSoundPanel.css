@@ -2,9 +2,9 @@
   display: flex;
   padding: 1rem;
   position: fixed;
-  left: 35%;
+  left: 0;
   bottom: 1%;
-  right: 35%;
+  right: 0;
   z-index: 0;
   border-radius: 12px;
   background: var(--cor-card);
