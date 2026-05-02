@@ -79,13 +79,22 @@ export function useAudioPlayer() {
   }
 
   // Cleanup: para o áudio quando o componente é desmontado
+  // Essa função será chamada sempre que isPlaying ou currentSound mudarem
   useEffect(() => {
+    // Muda a cor do fundo da página
+    if(isPlaying && currentSound){
+      document.body.style.backgroundColor = currentSound.color;
+    // Caso nenhuma música estiver sendo tocada, ele troca para a cor normal novamente
+    } else {
+      document.body.style.backgroundColor = "#16171d";
+    }
+
     return () => {
       if (audioRef.current) {
         audioRef.current.pause()
       }
     }
-  }, [])
+  }, [isPlaying, currentSound]);
 
   // Retorna os estados e funções que os componentes precisam
   return { currentSound, isPlaying, volume, togglePlay, changeVolume }
