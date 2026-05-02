@@ -6,36 +6,33 @@
 // Observe como esta página não lida com detalhes de áudio —
 // isso fica encapsulado no hook useAudioPlayer.
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 import AppHeader       from '../../components/AppHeader/AppHeader'
 import CategoryTabs    from '../../components/CategoryTabs/CategoryTabs'
 import SoundCard       from '../../components/SoundCard/SoundCard'
 import VolumeSlider    from '../../components/VolumeSlider/VolumeSlider'
 import TimerSelector   from '../../components/TimerSelector/TimerSelector'
-import ActiveSoundPanel from '../../components/ActiveSoundPanel/ActiveSoundPanel'
 import FeedbackToast   from '../../components/FeedbackToast/FeedbackToast'
 
-import { useAudioPlayer } from '../../hooks/useAudioPlayer'
 import { sounds, categories } from '../../data/sounds'
 
 import './Home.css'
 
-function Home({ onNavigate }) {
-  // --- Hook de áudio ---
-  // Delegamos toda a lógica de áudio para o hook personalizado
-  const { currentSound, isPlaying, volume, togglePlay, changeVolume } = useAudioPlayer()
-
-  // --- Estados locais da página ---
-
+function Home({
+  onNavigate,
+  currentSound,
+  isPlaying,
+  volume,
+  togglePlay,
+  changeVolume,
+  setTimeLeft,
+}) {
   // Categoria selecionada nas abas (começa com "todos")
   const [activeCategory, setActiveCategory] = useState('todos')
 
   // Tempo selecionado em minutos (null = nenhum)
   const [selectedTime, setSelectedTime] = useState(null)
-
-  // Tempo restante em segundos para o countdown
-  const [timeLeft, setTimeLeft] = useState(null)
 
   // Estado do toast de feedback { show: bool, message: string }
   const [toast, setToast] = useState({ show: false, message: '' })
@@ -70,21 +67,6 @@ function Home({ onNavigate }) {
     setTimeLeft(minutos * 60) // converte para segundos
     mostrarToast(`⏱ Timer configurado para ${minutos} min`)
   }
-
-  // --- Efeito do contagem regressiva ---
-  // Este useEffect roda novamente sempre que isPlaying ou timeLeft mudam.
-  // Usamos setTimeout para decrementar o contador um segundo por vez.
-  useEffect(() => {
-    // Não inicia se não estiver tocando ou sem tempo configurado
-    if (!isPlaying || timeLeft === null || timeLeft <= 0) return
-
-    const timer = setTimeout(() => {
-      setTimeLeft((prev) => prev - 1)
-    }, 1000)
-
-    // Cleanup: cancela o timeout se o efeito rodar novamente antes de completar
-    return () => clearTimeout(timer)
-  }, [isPlaying, timeLeft])
 
   // --- Renderização ---
   return (
@@ -124,14 +106,6 @@ function Home({ onNavigate }) {
       </div>
 
       {/* 5. Painel de "tocando agora" — só aparece quando há um som selecionado */}
-      {currentSound && (
-        <ActiveSoundPanel
-          currentSound={currentSound}
-          isPlaying={isPlaying}
-          volume={volume}
-          timeLeft={timeLeft}
-        />
-      )}
 
       {/* 6. Toast de feedback — aparece e some automaticamente */}
       <FeedbackToast show={toast.show} message={toast.message} />
