@@ -56,8 +56,10 @@ function Home({
     const estaRodandoEstesom = currentSound?.id === sound.id && isPlaying
     togglePlay(sound)
     if (estaRodandoEstesom) {
+      document.body.style.backgroundColor = "#16171d";
       mostrarToast(`⏸ ${sound.name} pausado`)
     } else {
+      document.body.style.backgroundColor = sound.color;
       mostrarToast(`▶ ${sound.name} iniciado`)
     }
   }

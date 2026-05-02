@@ -3,7 +3,7 @@
 // Para usar áudios reais, coloque os arquivos .mp3 na pasta /public/sounds/
 
 export const sounds = [
-  { id: 1, name: 'Chuva suave',      category: 'natureza',     emoji: '🌧️', color: 'red',       src: 'https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3'        },
+  { id: 1, name: 'Chuva suave',      category: 'natureza',     emoji: '🌧️', color: 'red',       src: '/sounds/rain.mp3'       },
   { id: 2, name: 'Ondas do mar',     category: 'natureza',     emoji: '🌊', color: 'blue',      src: '/sounds/teste.mp3'       },
   { id: 3, name: 'Floresta',         category: 'natureza',     emoji: '🌿', color: 'green',     src: '/sounds/teste.mp3'       },
   { id: 4, name: 'Ruído branco',     category: 'ruído branco', emoji: '📡', color: 'pink',      src: '/sounds/teste.mp3'       },
