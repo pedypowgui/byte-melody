@@ -17,9 +17,7 @@ function formatarTempo(segundos) {
 
 function ActiveSoundPanel({ currentSound, isPlaying, volume, timeLeft }) {
   return (
-    <div className="active-panel">
-      <h3 className="active-panel__titulo">Tocando agora</h3>
-
+    <div className="active-panel"> 
       <div className="active-panel__conteudo">
         <span className="active-panel__emoji">{currentSound.emoji}</span>
 

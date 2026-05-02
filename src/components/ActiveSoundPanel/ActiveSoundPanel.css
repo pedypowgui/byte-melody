@@ -1,7 +1,13 @@
 .active-panel {
+  display: flex;
   padding: 1rem;
-  background: var(--cor-card);
+  position: fixed;
+  left: 35%;
+  bottom: 1%;
+  right: 35%;
+  z-index: 0;
   border-radius: 12px;
+  background: var(--cor-card);
   border: 1px solid var(--cor-destaque);
 }
 
@@ -10,14 +16,15 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--cor-destaque);
-  margin: 0 0 0.75rem;
+  margin: 0 0 0rem;
   font-weight: 600;
 }
 
 .active-panel__conteudo {
+  flex: 1;
+  gap: 1rem;  
   display: flex;
   align-items: center;
-  gap: 1rem;
 }
 
 .active-panel__emoji {
